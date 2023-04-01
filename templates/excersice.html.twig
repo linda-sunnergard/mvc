@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Övningar{% endblock %}
+
+{% block body %}
+<main class="container">
+    <article>
+        <header>
+            <h1>Övningar</h1>
+        </header>
+
+        <ul class="reportlist">
+            <li><a class="aboutLink" href="{{ path('lucky') }}">Turnummer</a></li>
+            <li><a class="aboutLink" href="{{ path('quote') }}">Ordspråk</a></li>
+        </ul>
+    </article>
+</main>
+{% endblock %}

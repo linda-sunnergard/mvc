@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+<main class="container">
+    <article>
+        <header>
+            <h1>Lucky number</h1>
+        </header>
+        <p>Ditt turnummer är: {{ number }}</p>
+
+        <img class="imgCenter" src="img/background.jpg" width="500" alt="En fin bild">
+    </article>
+</main>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Om kursen</h1>
+
+    <div class="grid">
+        <div class="side">
+            <p><a class="aboutLink" href="https://github.com/dbwebb-se/mvc">Kursrepo på Github</a></p>
+
+            <p><a class="aboutLink" href="https://github.com/linda-sunnergard">Min sida på Github</a></p>
+        </div>
+
+        <div class="main">
+            <article>
+                <p>Denna webbplatsen är en del av kursen <a class="aboutLink" href="https://dbwebb.se/kurser/mvc-v2">Objektorienterade webbteknologier</a>.</p>
+
+                <p>Syftet med denna kurs är att jag förstå och lära mig olika objektorienterade programmeringstekniker i programmeringsspråket PHP. Bland annat kommer jag få lära mig och jobba med webbaserade ramverk, databaser och enhetstestning.</p>
+            </article>
+        </div>
+    </div>
+
+    <p><img class="imgCenter" src="img/mvc.jpg" width="500" alt="Bild som represenerar kursen"></p>
+</main>
+{% endblock %}
