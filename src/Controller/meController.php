@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class meController extends AbstractController
@@ -43,33 +42,5 @@ class meController extends AbstractController
     public function excersice(): Response
     {
         return $this->render('excersice.html.twig');
-    }
-
-    #[Route("/api/quote", name: "quote")]
-    public function rand_quote(): Response
-    {
-
-        $quotes = array(
-            'This too shall pass',
-            'The most important step to take is the next',
-            'An empty vessel makes much noise'
-        );
-        $key = array_rand($quotes);
-
-        $date = date('Y-m-d');
-
-        $time_answer = date('H:i:s');
-
-        $data = [
-            'random_quote' => $quotes[$key],
-            'quote_generated' => $time_answer,
-            'today' => $date
-        ];
-
-        $response = new JsonResponse($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT
-        );
-        return $response;
     }
 }

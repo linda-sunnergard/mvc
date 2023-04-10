@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blanda kortleken{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<heder>
+<h1>Blanda kortleken</h1>
+</header>
+
+<p>Blanda alla fina kort.</p>
+
+<ul class="deckList">
+{% for card in deck_shuffled %}
+    <li class="deckListCards">{{ card }}</li>
+{% endfor %}
+</ul>
+
+</main>
+{% endblock %}

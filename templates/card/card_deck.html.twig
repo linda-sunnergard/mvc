@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortleken{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<heder>
+<h1>Kortleken</h1>
+</header>
+
+<p>Titta på alla fina sorterade kort.</p>
+
+<ul class="deckList">
+{% for card in deck_sorted %}
+    <li class="deckListCards">{{ card }}</li>
+{% endfor %}
+</ul>
+
+</main>
+{% endblock %}

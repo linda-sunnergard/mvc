@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dra ett kort{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Dra ett kort (eller flera)</h1>
+</header>
+
+<form method="post" action="">
+    <input type="number" name="num_cards" min="1" max="52" value="1">
+    <input type="submit" name="do_it" value="Dra kort ur kortleken">
+</form>
+
+<p>Det här är det kort du fick: </p>
+<ul>
+{% if card is iterable %}
+    {% for card_draw in card %}
+        <li class="deckListCards">{{ card_draw }}</li>
+    {% endfor %}
+{% else %}
+    {{ card }}
+{% endif %}
+</ul>
+
+&nbsp;
+
+<p>Det här är korten som är kvar i kortleken</p>
+<ul class="deckList">
+{% for deck_card in deck %}
+    <li class="deckListCards">{{ deck_card }}</li>
+{% endfor %}
+</ul>
+
+</main>
+{% endblock %}

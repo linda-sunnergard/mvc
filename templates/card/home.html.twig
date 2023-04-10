@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortspelet{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Kortspelet</h1>
+
+        <div class="main">
+            <article>
+                <p>Det här är ett jätteroligt kortspel.</p>
+                <p>Struktur: Jag har valt att ha fyra klasser, nämligen Card, CardGraphic (ärver från Card), CardHand (består av flera Card-objekt) och DeckOfCards (består av flera CardGraphic-objekt).</p>
+                <ul>
+                    <li><a href="{{ path('card') }}">Startsida (den här sidan)</a></li>
+                    <li><a href="{{ path('card_deck') }}">Sortera korten</a></li>
+                    <li><a href="{{ path('card_deck_shuffle') }}">Blanda korten</a></li>
+                    <li><a href="{{ path('card_deck_draw') }}">Dra ett kort (eller flera)</a></li>
+                </ul>
+            </article>
+        </div>
+</main>
+{% endblock %}

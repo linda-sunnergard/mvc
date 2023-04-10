@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Api{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Api</h1>
+
+        <div class="main">
+            <article>
+                <p>Jag har fyra klasser i min struktur: Card, GraphicCard (ärver från Card), CardHand (består av flera Card-objekt) och DeckOfCards (består av flera GraphicCard-objekt).</p>
+                <img class="imgCenter" src="img/card.drawio.png" alt="Klasserna">
+                <ul>
+                    <li>Här kan du kolla ordspråk och datum. <a href="{{ path('api_quote') }}">Ordspråk och grejer</a></li>
+                    <li>Här kan du sortera kortleken. <a href="{{ path('api_deck_sort') }}">Sortera kortleken</a></li>
+                    <li>Här kan du blanda kortleken. <a href="{{ path('api_deck_shuffle') }}">Blanda kortleken</a></li>
+                    <li>Här kan du dra ett kort (eller flera). <a href="{{ path('api_deck_draw') }}">Dra kort</a></li>
+                </ul>
+            </article>
+        </div>
+</main>
+{% endblock %}

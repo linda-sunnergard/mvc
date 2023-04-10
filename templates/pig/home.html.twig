@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Grisspelet{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Grisspelet</h1>
+
+        <div class="main">
+            <article>
+                <p>Det här är ett tärningsspel som heter "Grisspelet". Du ska kasta tärningar och försöka få 100 poäng. Du kan läsa mer om spelet på <a class="aboutLink" href="https://sv.wikipedia.org/wiki/Pig">Wikipedia</a>.</p>
+                <ul>
+                    <li><a href="{{ path('pig_start') }}">Landing page</li>
+                    <li><a href="{{ path('test_roll_dice') }}">Roll one dice</li>
+                    <li><a href="{{ path('test_roll_num_dices', {num: 5}) }}">Roll many dice</li>
+                    <li><a href="{{ path('test_dicehand', {num: 5}) }}">Roll dicehand</li>
+                    <li><a href="{{ path('pig_init_get') }}">Game Pig Start</li>
+                </ul>
+            </article>
+        </div>
+</main>
+{% endblock %}
