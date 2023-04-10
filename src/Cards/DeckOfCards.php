@@ -59,28 +59,29 @@ class DeckOfCards
 
         $card_object = $this->deck[$card_index];
         $this->remove_card($card_index);
-        
+
         return $card_object;
     }
 
-    public function draw_cards(int $numb): array {
+    public function draw_cards(int $numb): array
+    {
         if($numb <= 1) {
             return [$this->draw_card()];
-        } 
-        
+        }
+
         $card_indexes = array_rand($this->deck, $numb);
         $cards = [];
-        
-        
+
+
         foreach ($card_indexes as $index) {
             $cards[] = $this->deck[$index];
             $this->remove_card($index);
         }
-        
-        
+
+
         return $cards;
     }
-    
+
     public function remove_card(int $card): void
     {
         unset($this->deck[$card]);
