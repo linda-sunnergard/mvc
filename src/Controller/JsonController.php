@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Exception;
 
 class JsonController extends AbstractController
 {
@@ -21,8 +22,8 @@ class JsonController extends AbstractController
         return $this->render('api/home.html.twig');
     }
 
-    #[Route("/api/quote", name: "api_quote")]
-    public function rand_quote(): Response
+    #[Route("/api/quote", name: "apiQuote")]
+    public function randQuote(): Response
     {
         $quotes = array(
             'This too shall pass',
@@ -33,11 +34,11 @@ class JsonController extends AbstractController
 
         $date = date('Y-m-d');
 
-        $time_answer = date('H:i:s');
+        $timeAnswer = date('H:i:s');
 
         $data = [
             'random_quote' => $quotes[$key],
-            'quote_generated' => $time_answer,
+            'quote_generated' => $timeAnswer,
             'today' => $date
         ];
 
@@ -48,14 +49,14 @@ class JsonController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck", name: "api_deck_sort", methods:"GET")]
-    public function api_deck_sort(): Response
+    #[Route("/api/deck", name: "apiDeckSort", methods:"GET")]
+    public function apiDeckSort(): Response
     {
         $deck = new DeckOfCards();
 
         $graphicCards = [];
 
-        foreach ($deck->sort_deck() as $card) {
+        foreach ($deck->sortDeck() as $card) {
             $graphicCards[] = $card->toString();
         }
 
@@ -70,8 +71,8 @@ class JsonController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/shuffle", name: "api_deck_shuffle")]
-    public function api_deck_shuffle(
+    #[Route("/api/deck/shuffle", name: "apiDeckShuffle")]
+    public function apiDeckShuffle(
         SessionInterface $session
     ): Response {
         $deck = new DeckOfCards();
@@ -79,7 +80,7 @@ class JsonController extends AbstractController
 
         $graphicCardsShuffled = [];
 
-        foreach ($deck->shuffle_deck() as $card) {
+        foreach ($deck->shuffleDeck() as $card) {
             $graphicCardsShuffled[] = $card->toString();
         }
 
@@ -94,28 +95,28 @@ class JsonController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/draw", name: "api_deck_draw")]
-    public function draw(
+    #[Route("/api/deck/draw", name: "apiDeckDraw")]
+    public function apiDeckDraw(
         SessionInterface $session
     ): Response {
         $hand = $session->get("hand", new CardHand());
         $deck = $session->get("deck", new DeckOfCards());
 
-        if ($deck->count_deck() == 0) {
-            throw new \Exception("No cards left!");
+        if ($deck->countDeck() == 0) {
+            throw new Exception("No cards left!");
         }
 
-        $card = $deck->draw_card();
+        $card = $deck->drawCard();
         $hand->add($card);
 
         $graphicCard = $card->toString();
         $graphicDeck = [];
 
-        foreach ($deck->get_deck() as $current_card) {
-            $graphicDeck[] = $current_card->toString();
+        foreach ($deck->getDeck() as $currentCard) {
+            $graphicDeck[] = $currentCard->toString();
         }
 
-        $numCardsLeft = $deck->count_deck();
+        $numCardsLeft = $deck->countDeck();
 
         $data = [
             "card" => $graphicCard,
@@ -130,41 +131,68 @@ class JsonController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/draw/{num<\d+>}", name: "api_deck_draw_many")]
-    public function draw_post(
+    #[Route("/api/deck/draw/{num<\d+>}", name: "apiDeckDrawMany")]
+    public function apiDeckDrawMany(
         int $num,
-        Request $request,
         SessionInterface $session
     ): Response {
         $hand = $session->get("hand", new CardHand());
         $deck = $session->get("deck", new DeckOfCards());
 
-        if ($deck->count_deck() < $num) {
-            throw new \Exception("Not enough cards left!");
+        if ($deck->countDeck() < $num) {
+            throw new Exception("Not enough cards left!");
         }
 
-        $new_cards = $deck->draw_cards($num);
+        $newCards = $deck->drawCards($num);
         $graphicCards = [];
 
-        foreach ($new_cards as $current_card) {
-            $graphicCards[] = $current_card->toString();
-            $hand->add($current_card);
+        foreach ($newCards as $currentCard) {
+            $graphicCards[] = $currentCard->toString();
+            $hand->add($currentCard);
         }
 
         $graphicDeck = [];
-        foreach ($deck->get_deck() as $card) {
+        foreach ($deck->getDeck() as $card) {
             $graphicDeck[] = $card->toString();
         }
 
         $session->set("hand", $hand);
         $session->set("deck", $deck);
 
-        $numCardsLeft = $deck->count_deck();
+        $numCardsLeft = $deck->countDeck();
 
         $data = [
             "card(s)" => $graphicCards,
             "numCardsLeft" => $numCardsLeft,
             "deck" => $graphicDeck
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    #[Route("/api/game", name: "apiGame")]
+    public function apiGame(
+        SessionInterface $session
+    ): Response {
+        $game = $session->get("game");
+
+        $player = $game->getPlayer("player");
+        $playerHand = $game->getPlayerHandJson($player);
+        $playerPoints = $player->calcPoints();
+
+        $bank = $game->getPlayer("bank");
+        $bankHand = $game->getPlayerHandJson($bank);
+        $bankPoints = $bank->calcPoints();
+
+        $data = [
+            "playerHand" => $playerHand,
+            "playerPoints" => $playerPoints,
+            "bankHand" => $bankHand,
+            "bankPoints" => $bankPoints
         ];
 
         $response = new JsonResponse($data);

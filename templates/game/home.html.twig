@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortspelet 21{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Kortspelet 21</h1>
+
+        <div class="main">
+            <article>
+                <p>Det här är ett jätteroligt kortspel.</p>
+                <p>Detta är ett jätteroligt spel där man ska få 21 poäng. Läs mer om spelet <a class="aboutLink" href="https://sv.wikipedia.org/wiki/Tjugoett_(kortspel)">här</a>.</p>
+                <h2>Regler</h2>
+                    <ul>
+                        <li>Dra kort och försök få 21 poäng.</li>
+                        <li>När du stannar är det bankens tur.</li>
+                        <li>Blir det lika vinner banken.</li>
+                        <li>Går du över 21 vinner banken.</li>
+                    </ul>
+&nbsp;
+                <ul>
+                    <li><a class="aboutLink" href="{{ path('game') }}">Startsida (den här sidan)</a></li>
+                    <li><a class="aboutLink" href="{{ path('doc') }}">Dokumentation</a></li>
+                    <li><a class="aboutLink" href="{{ path('game_init_get') }}">Starta spelet</a></li>
+                </ul>
+            </article>
+        </div>
+</main>
+{% endblock %}

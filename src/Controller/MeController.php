@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class meController extends AbstractController
+class MeController extends AbstractController
 {
     #[Route("/lucky", name: "lucky")]
     public function numluckyber(): Response
@@ -20,7 +20,7 @@ class meController extends AbstractController
         return $this->render('lucky.html.twig', $data);
     }
 
-    #[Route("/home", name: "home")]
+    #[Route("/", name: "home")]
     public function home(): Response
     {
         return $this->render('home.html.twig');

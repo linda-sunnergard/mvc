@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Slut{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Kortspelet 21 färdigt</h1>
+</header>
+
+<p>Spelet är slut!</p>
+
+<p>Du fick {{ player_points }} poäng och drog dessa kort:</p>
+
+<p>
+{% for card in player_hand %}
+    <span class="die">{{ card }}</span>
+{% endfor %}
+</p>
+
+<p>Banken fick {{ bank_points }} poäng och drog dessa kort:</p>
+
+<p>
+{% for card in bank_hand %}
+    <span class="die">{{ card }}</span>
+{% endfor %}
+</p>
+
+{% if playerWins %}
+    <p>Vinnare: DU!</p>
+{% else %}
+    <p>Vinnare: Banken.</p>
+{% endif %}
+
+<a class="aboutLink" href="{{ path('game_init_get') }}">Spela igen</a>
+</main>
+
+{% endblock %}

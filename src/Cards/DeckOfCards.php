@@ -20,7 +20,7 @@ class DeckOfCards
         }
     }
 
-    public function sort_deck(): array
+    public function sortDeck(): array
     {
         $hearts = array();
         $diamonds = array();
@@ -46,53 +46,53 @@ class DeckOfCards
         return $this->deck;
     }
 
-    public function shuffle_deck(): array
+    public function shuffleDeck(): array
     {
         shuffle($this->deck);
 
         return $this->deck;
     }
 
-    public function draw_card(): Card
+    public function drawCard(): CardGraphic
     {
-        $card_index = array_rand($this->deck);
+        $cardIndex = array_rand($this->deck);
 
-        $card_object = $this->deck[$card_index];
-        $this->remove_card($card_index);
+        $cardObject = $this->deck[$cardIndex];
+        $this->removeCard($cardIndex);
 
-        return $card_object;
+        return $cardObject;
     }
 
-    public function draw_cards(int $numb): array
+    public function drawCards(int $numb): array
     {
         if($numb <= 1) {
-            return [$this->draw_card()];
+            return [$this->drawCard()];
         }
 
-        $card_indexes = array_rand($this->deck, $numb);
+        $cardIndexes = array_rand($this->deck, $numb);
         $cards = [];
 
 
-        foreach ($card_indexes as $index) {
+        foreach ($cardIndexes as $index) {
             $cards[] = $this->deck[$index];
-            $this->remove_card($index);
+            $this->removeCard($index);
         }
 
 
         return $cards;
     }
 
-    public function remove_card(int $card): void
+    public function removeCard(int $card): void
     {
         unset($this->deck[$card]);
     }
 
-    public function get_deck(): array
+    public function getDeck(): array
     {
         return array_values($this->deck);
     }
 
-    public function count_deck(): int
+    public function countDeck(): int
     {
         return count($this->deck);
     }

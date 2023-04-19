@@ -47,6 +47,14 @@
 
 <section id="kmom03">
 <h2>Kmom03</h2>
+<p class="question">Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</p>
+<p>Framförallt flödesdiagrammet tyckte jag var hjälpsamt, och att fundera på vilka klasser jag ville ha med. Det var svårare med pseudokoden. Jag ville mer få en bra överblick i början än att börja fundera i detalj på hur koden skulle se ut. Då var det mer hjälpsamt att tänka övergripande på vilka sidor som skulle presenteras för spelaren och vilken information, samt vad som bara skulle hända i bakgrunden.</p>
+<p class="question">Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden, dina klasser och applikationen som helhet?</p>
+<p>Jag är överlag ganska nöjd med mitt huvudsakliga upplägg att ha en spelar-klass, en bank-klass (som ärver från spelare), en spel-klass (som innehåller en spelare, en bank och en kortlek). Sen valde jag också att skapa en "draw response"-klass som samlar information om vilket kort som drogs, och spelarens nuvarande poäng (fast nu när jag tänker efter vet jag inte om jag använder det så mycket). Skulle jag förbättra något skulle det nog vara att göra ett snyggare flöde när banken drar kort. I nuläget gör banken bara det i bakgrunden, men det hade varit snyggt att visa upp vilka kort banken drar en åt gången för spelaren.</p>
+<p class="question">Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?</p>
+<p>Det känns okej. Jag blir alltid lite förvirrad över alla dess ramverk och vad de gör. Jag känner väl ändå att jag har tillräckligt med koll för att kunna få ihop mitt projekt. Fast en sak som förvirrade mig var att vissa bilder syntes bara i localhost, men inte på studentservern. Det var konstigt, men jag lyckades lösa det med hjälp av en guide i git issues för kursen.</p>
+<p class="question">Vilken är din TIL för detta kmom?</p>
+<p>Att linterns är jobbiga, men bra. Jobbigt när man får en miljon fel för att jag inte använde camelcase på rätt ställen osv, men väldigt tillfredsställande när allt är snyggt och fixat. Det är dock svårt att hålla ordning i koden. Ganska snabbt blir det många variabler och funktioner, och när allt väl fungerar vill jag inte röra för mycket så att det helt plötsligt inte fungerar igen. Så då får det vara lite rörigt istället. Good enough helt enkelt.</p>
 </section>
 
 <section id="kmom04">

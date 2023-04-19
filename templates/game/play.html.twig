@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Spelar{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Spelar 21</h1>
+</header>
+
+<p>Det här är kortet du drog: {{ current_card }}.</p>
+
+<p>Poäng: {{ currentPoints }}</p>
+
+<p>Dra ett nytt kort eller låt banken dra kort.</p>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="draw" value="Dra ett kort"
+            onClick="this.form.action='{{ path('game_draw') }}';"
+        >
+
+        <input type="submit" name="stop" value="Stanna"
+            onClick="this.form.action='{{ path('game_bank') }}';"
+        >
+
+        <input type="submit" name="restart" value="Börja om"
+            onClick="this.form.action='{{ path('game') }}';this.form.method='get';"
+        >
+    </p>
+</form>
+</main>
+
+{% endblock %}

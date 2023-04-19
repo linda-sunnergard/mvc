@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Exception;
 
 class CardGameController extends AbstractController
 {
@@ -27,7 +28,7 @@ class CardGameController extends AbstractController
 
         $graphicCards = [];
 
-        foreach ($deck->sort_deck() as $card) {
+        foreach ($deck->sortDeck() as $card) {
             $graphicCards[] = $card->getAsString();
         }
 
@@ -47,7 +48,7 @@ class CardGameController extends AbstractController
 
         $graphicCardsShuffled = [];
 
-        foreach ($deck->shuffle_deck() as $card) {
+        foreach ($deck->shuffleDeck() as $card) {
             $graphicCardsShuffled[] = $card->getAsString();
         }
 
@@ -64,18 +65,18 @@ class CardGameController extends AbstractController
         $hand = $session->get("hand", new CardHand());
         $deck = $session->get("deck");
 
-        if ($deck->count_deck() == 0) {
-            throw new \Exception("No cards left!");
+        if ($deck->countDeck() == 0) {
+            throw new Exception("No cards left!");
         }
 
-        $card = $deck->draw_card();
+        $card = $deck->drawCard();
         $hand->add($card);
 
         $graphicCard = $card->getAsString();
         $graphicDeck = [];
 
-        foreach ($deck->get_deck() as $current_card) {
-            $graphicDeck[] = $current_card->getAsString();
+        foreach ($deck->getDeck() as $currentCard) {
+            $graphicDeck[] = $currentCard->getAsString();
         }
 
         $data = [
@@ -86,7 +87,7 @@ class CardGameController extends AbstractController
     }
 
     #[Route("/card/deck/draw", name: "card_deck_draw_post", methods: ['POST'])]
-    public function draw_post(
+    public function drawPost(
         Request $request,
         SessionInterface $session
     ): Response {
@@ -94,11 +95,11 @@ class CardGameController extends AbstractController
         $hand = $session->get("hand", new CardHand());
         $deck = $session->get("deck");
 
-        if ($deck->count_deck() < $numCards) {
-            throw new \Exception("Not enough cards left!");
+        if ($deck->countDeck() < $numCards) {
+            throw new Exception("Not enough cards left!");
         }
 
-        $cards = $deck->draw_cards($numCards);
+        $cards = $deck->drawCards($numCards);
         $graphicCards = [];
 
         foreach ($cards as $card) {
@@ -107,7 +108,7 @@ class CardGameController extends AbstractController
         }
 
         $graphicDeck = [];
-        foreach ($deck->get_deck() as $card) {
+        foreach ($deck->getDeck() as $card) {
             $graphicDeck[] = $card->getAsString();
         }
 

@@ -6,7 +6,7 @@ use App\Cards\Card;
 
 class CardHand
 {
-    protected $hand = [];
+    protected array $hand = [];
 
     public function add(Card $card): void
     {
@@ -23,6 +23,15 @@ class CardHand
         $values = [];
         foreach ($this->hand as $card) {
             $values[] = $card->getAsString();
+        }
+        return $values;
+    }
+
+    public function getStringJson(): array
+    {
+        $values = [];
+        foreach ($this->hand as $card) {
+            $values[] = $card->toString();
         }
         return $values;
     }

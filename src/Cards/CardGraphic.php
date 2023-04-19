@@ -4,14 +4,17 @@ namespace App\Cards;
 
 class CardGraphic extends Card
 {
-    private $suits = [
+    /**
+     * @param array<string, suits> $suits
+     */
+    private array $suits = [
         "Spades"=>'♠',
         "Hearts"=>'♥︎',
         "Diamonds"=>'♦︎',
         "Clubs"=>'♣︎'
     ];
 
-    private $values = [
+    private array $values = [
       1 => "A",
       2 => "2",
       3 => "3",

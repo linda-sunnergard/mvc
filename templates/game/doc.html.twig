@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dokumentation{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Dokumentation</h1>
+
+        <div class="main">
+            <article>
+                <p>Här är dokumentationen om problemlösningen/implementationen av spelet.</p>
+                <p><a class="aboutLink" href="{{ path('game') }}">Tillbaka till startsidan</a></p>
+                <h2>Flödesdiagram</h2>
+                <img class="imgCenter" src="../img/flow.png" alt="Flödesdiagram">
+                <h2>Pseudokod</h2>
+                <div class="blockquote">
+                <p>public function setUpGame() {</p>
+                <p>game = new Game();</p>
+                <p>player = new Player();</p>
+                <p>bank = new Bank();</p>
+                <p>player->draw_card_from_deck_and_add_to_hand();</p>
+                <p>}</p>
+                </div>
+&nbsp;
+                <div class="blockquote">
+                <p>public function player_or_bank_draw_card() {<p>
+                <p>card = DeckOfCards->draw_random_card();</p>
+                <p>player_CardHand->add_card();</p>
+                <p>new_total_points = player_CardHand->count_total_points();</p>
+                <p>if (new_total_points > 21) {</p>
+                <p>//some code to finish the game, sum up player/bank points and decide winner.</p>
+                <p>} else {</p>
+                <p>maybe return card?</p>
+                <p>}</p>
+                <p>}</p>
+                </div>
+                <h2>Klasser</h2>
+                <p>Player: En spelar-klass som har koll på spelarens CardHand.</p>
+                <p>Bank: En bank-klass som har koll på bankens CardHand</p>
+                <p>Game: En game-klass som har koll på reglerna, och totalpoäng för spelare/bank.</p>
+            </article>
+        </div>
+</main>
+{% endblock %}

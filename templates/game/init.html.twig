@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Börja spela{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Börja spela 21</h1>
+</header>
+
+<h2>Regler</h2>
+<ul>
+    <li>Dra kort och försök få 21 poäng.</li>
+    <li>När du stannar är det bankens tur.</li>
+    <li>Blir det lika vinner banken.</li>
+    <li>Går du över 21 vinner banken.</li>
+</ul>
+
+<form method="post" action="">
+    <input type="submit" name="do_it" value="Börja spela">
+</form>
+</main>
+
+{% endblock %}

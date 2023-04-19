@@ -12,8 +12,8 @@ enum Suit
 
 class Card
 {
-    protected $suit;
-    protected $value;
+    protected Suit $suit;
+    protected int $value;
 
     public function __construct(Suit $suit, int $value)
     {
