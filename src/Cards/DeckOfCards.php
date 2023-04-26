@@ -5,6 +5,7 @@ namespace App\Cards;
 use App\Cards\Suit;
 use App\Cards\Card;
 use App\Cards\CardHand;
+use Exception;
 
 class DeckOfCards
 {
@@ -63,27 +64,29 @@ class DeckOfCards
         return $cardObject;
     }
 
-    public function drawCards(int $numb): array
+    public function drawCards(int $numb = null): array
     {
-        if($numb <= 1) {
+        if($numb <= 1 or $numb == null) {
             return [$this->drawCard()];
         }
 
         $cardIndexes = array_rand($this->deck, $numb);
         $cards = [];
 
-
         foreach ($cardIndexes as $index) {
             $cards[] = $this->deck[$index];
             $this->removeCard($index);
         }
 
-
         return $cards;
     }
 
-    public function removeCard(int $card): void
+    public function removeCard(int $card = null): void
     {
+        if (is_null($card)) {
+            throw new Exception("Failed to remove card from deck.");
+        }
+
         unset($this->deck[$card]);
     }
 

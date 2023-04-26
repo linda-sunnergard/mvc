@@ -5,6 +5,7 @@ namespace App\Game;
 use App\Cards\CardHand;
 use App\Cards\Card;
 use App\Cards\DeckOfCards;
+use Exception;
 
 class Player
 {
@@ -15,8 +16,12 @@ class Player
         $this->hand = new CardHand();
     }
 
-    public function addPlayerHand(Card $card): void
+    public function addPlayerHand(Card $card = null): void
     {
+        if ($card == null) {
+            throw new Exception("Failed to add card to the player's hand.");
+        }
+
         $this->hand->add($card);
     }
 
@@ -47,6 +52,11 @@ class Player
         }
 
         return $highPoints;
+    }
+
+    public function getCardHandArray(): array
+    {
+        return $this->hand->getHand();
     }
 
     public function getHand(): array

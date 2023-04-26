@@ -3,13 +3,18 @@
 namespace App\Cards;
 
 use App\Cards\Card;
+use Exception;
 
 class CardHand
 {
     protected array $hand = [];
 
-    public function add(Card $card): void
+    public function add(Card $card = null): void
     {
+        if ($card == null) {
+            throw new Exception("You need to pick a card to add to your hand.");
+        }
+
         $this->hand[] = $card;
     }
 
