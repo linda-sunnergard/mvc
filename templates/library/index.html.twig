@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Biblioteket{% endblock %}
+
+{% block body %}
+<main class="container">
+    <h1>Biblioteket</h1>
+
+        <div class="main">
+            <article>
+                <p>Välkommen till biblioteket!</p>
+&nbsp;
+                <ul>
+                    <li><a class="aboutLink" href="{{ path('library') }}">Startsida (den här sidan)</a></li>
+                    <li><a class="aboutLink" href="{{ path('library_create') }}">Lägg till en ny bok</a></li>
+                    <li><a class="aboutLink" href="{{ path('library_show_all') }}">Se alla böcker</a></li>
+                    <li><a class="aboutLink" href="{{ path('library_reset') }}">Återställ biblioteket</a></li>
+                    <li><a class="aboutLink" href="/api/library/book/9789172703377">Se api/json-detaljer för boken Pannkakstårtan</a></li>
+                </ul>
+            </article>
+        </div>
+</main>
+{% endblock %}

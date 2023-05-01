@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Uppdatera bok{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Uppdatera bok</h1>
+</header>
+
+<p>Uppdatera en bok</p>
+
+<form class="label-left" method="post" action="">
+    <fieldset>
+        <legend>Uppdatera bok</legend>
+
+        <label for="title">Titel</label>
+        <input id="title" type="text" name="title" value="{{book.title}}">
+
+        <label for="author">Författare</label>
+        <input id="author" type="text" name="author" value="{{book.author}}">
+
+        <label for="isbn">ISBN</label>
+        <input id="isbn" type="number" name="isbn" value="{{book.isbn}}">
+
+        <input type="submit" name="doit" value="Uppdatera bok">
+    </fieldset>
+</form>
+
+</main>
+
+{% endblock %}

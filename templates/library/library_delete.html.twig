@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Radera bok{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Radera bok</h1>
+</header>
+
+<p>Radera en bok</p>
+
+<form class="label-left" method="post" action="">
+    <fieldset>
+        <legend>Radera bok</legend>
+
+        <label for="title">Titel</label>
+        <input class="read" id="title" type="text" name="title" readonly value="{{book.title}}">
+
+        <label for="author">Författare</label>
+        <input class="read" id="author" type="text" name="author" readonly value="{{book.author}}">
+
+        <label for="isbn">ISBN</label>
+        <input class="read" id="isbn" type="number" name="isbn" readonly value="{{book.isbn}}">
+
+        <input type="submit" name="doit" value="Radera bok">
+    </fieldset>
+</form>
+
+</main>
+
+{% endblock %}

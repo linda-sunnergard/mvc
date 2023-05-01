@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Alla böcker{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Alla böcker</h1>
+</header>
+
+<p>Här är alla böcker i biblioteket!</p>
+
+<ul class="libraryList">
+{% for book in library %}
+    <li><img class="imgBook" src="../img/{{book.image}}" alt="Bild som representerar boken"></li>
+    <li><a class="aboutLink" href="/library/show/{{book.id}}">{{book.title}}</a></li>
+    <li>Av {{book.author}}</li>
+    <li>ISBN: {{book.isbn}}</li>
+    <li><a class="aboutLink" href="/library/delete/{{book.id}}">Radera</a> | <a class="aboutLink" href="/library/update/{{book.id}}">Uppdatera</a></li>
+&nbsp;
+{% endfor %}
+</ul>
+
+</main>
+
+{% endblock %}

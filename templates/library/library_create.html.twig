@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Lägg till en bok{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>Lägg till en bok</h1>
+</header>
+
+    <form class="label-left" method="post" action="">
+        <fieldset>
+            <legend>Lägg till en ny bok</legend>
+
+            <label for="title">Titel</label>
+            <input id="title" type="text" name="title">
+
+            <label for="author">Författare</label>
+            <input id="author" type="text" name="author">
+
+            <label for="isbn">ISBN</label>
+            <input id="isbn" type="number" name="isbn">
+
+            <input type="submit" name="doit" value="Lägg till bok">
+        </fieldset>
+    </form>
+</main>
+
+{% endblock %}

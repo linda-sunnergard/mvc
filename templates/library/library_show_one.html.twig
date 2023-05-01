@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}En bok{% endblock %}
+
+{% block body %}
+
+<main class="container">
+<header>
+<h1>En bok</h1>
+</header>
+
+<p>Här är en specifik bok från biblioteket!</p>
+
+<ul class="libraryList">
+    <li><img class="imgBook" src="../../img/{{book.image}}" alt="Bild som representerar boken"></li>
+    <li>{{book.title}}</li>
+    <li>Av {{book.author}}</li>
+    <li>ISBN: {{book.isbn}}</li>
+</ul>
+
+</main>
+
+{% endblock %}
