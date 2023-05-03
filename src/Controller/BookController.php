@@ -215,6 +215,15 @@ class BookController extends AbstractController
         $entityManager->persist($book3);
         $entityManager->flush();
 
+        $book4 = new Book();
+        $book4->setTitle('Testbok');
+        $book4->setAuthor('Testperson');
+        $book4->setIsbn(1234567890);
+        $book4->setImage('default.jpg');
+
+        $entityManager->persist($book4);
+        $entityManager->flush();
+
         return new Response('The database has been reset.');
     }
 }
