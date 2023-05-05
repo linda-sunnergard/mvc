@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kodkvalitet{% endblock %}
+
+{% block body %}
+<main class="container">
+    <article>
+        <h1>Kodkvalitet</h1>
+        <h2>Introduktion</h2>
+        <p>I denna analys kommer jag använda mig utav PHPMetrics och Scrutinizer för att ser över min kod. Jag kommer i första hand analysera den kod som jag själv skrivit under kursens gång (de klasser som hör till kortleken, kortspelet och biblioteket).</p>
+        <h3>Coverage</h3>
+        <p>Coverage handlar om hur stor del av koden som "täcks" utav olika testfall. Testas alla olika möjliga utfall i klassernas metoder? En hög kodtäckning innebär att så är fallet, vilket i sin tur innebär att det går att vara mer säker på att koden verkligen fungerar som tänkt.</p>
+
+        <h3>Complexity</h3>
+        <p>Complexity är ungefär vad det låter som. Det handlar om hur komplex koden är. Mer komplex kod kräver bland annat fler testfall. Den kan även vara svårare att underhålla och utveckla, vilket på sikt kan bli problematiskt.</p>
+
+        <h3>Cohesion</h3>
+        <p>Cohesion syftar till hur väl koden i exempelvis en klass hänger ihop. En låg cohesion indikerar att en klass utför flera olika saker som kanske inte nödvändigtvis hör ihop. Det kan indikera att klassen bör delas upp i mindre klasser.</p>
+
+        <h3>Coupling</h3>
+        <p>Det finns två typer av coupling. Det finns afferent coupling, som syftar till utgående "kopplingar". Alltså att en klass använder sig av många andra klasser. Det finns även efferent coupling, som syftar till inkommande "kopplingar". Alltså att en klass används av många andra klasser.</p>
+
+        <h2>Phpmetrics</h2>
+        <h3>Coverage</h3>
+        <p>Text</p>
+
+        <h3>Complexity</h3>
+        <p>Text</p>
+
+        <h3>Cohesion</h3>
+        <p>Text</p>
+
+        <h3>Coupling</h3>
+        <p>Text</p>
+
+        <h2>Scrutinizer</h2>
+        <h3>Coverage</h3>
+        <p>Text</p>
+
+        <h3>Complexity</h3>
+        <p>Text</p>
+
+        <h3>Cohesion</h3>
+        <p>Text</p>
+
+        <h3>Coupling</h3>
+        <p>Text</p>
+
+        <h2>Förbättringar</h2>
+        <h3>Förbättring nr 1</h3>
+        <p>Text</p>
+
+        <h3>Förbättring nr 2</h3>
+        <p>Text</p>
+
+        <h3>Förbättring nr 3</h3>
+        <p>Text</p>
+
+        <h2>Diskussion</h2>
+    </article>
+</main>
+{% endblock %}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683189981">
-  <project timestamp="1683189981">
+<coverage generated="1683295231">
+  <project timestamp="1683295231">
     <file name="/home/linda/dbwebb-kurser/mvc/me/report/src/Cards/Card.php">
       <class name="App\Cards\Card" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
@@ -551,7 +551,7 @@
     </file>
     <file name="/home/linda/dbwebb-kurser/mvc/me/report/src/Controller/MeController.php">
       <class name="App\Controller\MeController" namespace="global">
-        <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="14" coveredelements="0"/>
+        <metrics complexity="6" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="16" coveredelements="0"/>
       </class>
       <line num="11" type="method" name="numluckyber" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="14" type="stmt" count="0"/>
@@ -567,7 +567,9 @@
       <line num="38" type="stmt" count="0"/>
       <line num="41" type="method" name="excersice" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="44" type="stmt" count="0"/>
-      <metrics loc="47" ncloc="47" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="14" coveredelements="0"/>
+      <line num="47" type="method" name="metrics" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <metrics loc="53" ncloc="53" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="16" coveredelements="0"/>
     </file>
     <file name="/home/linda/dbwebb-kurser/mvc/me/report/src/Controller/ProductController.php">
       <class name="App\Controller\ProductController" namespace="global">
@@ -910,6 +912,6 @@
       <line num="38" type="stmt" count="0"/>
       <metrics loc="67" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="23" loc="1967" ncloc="1829" classes="22" methods="119" coveredmethods="35" conditionals="0" coveredconditionals="0" statements="652" coveredstatements="121" elements="771" coveredelements="156"/>
+    <metrics files="23" loc="1973" ncloc="1835" classes="22" methods="120" coveredmethods="35" conditionals="0" coveredconditionals="0" statements="653" coveredstatements="121" elements="773" coveredelements="156"/>
   </project>
 </coverage>
