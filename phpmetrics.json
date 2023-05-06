@@ -1,6 +1,7 @@
 {
     "includes": [
-        "src"
+        "src",
+        "test"
     ],
     "exclude": [
       "test[s]?"
