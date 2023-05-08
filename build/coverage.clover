@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1683295231">
-  <project timestamp="1683295231">
+<coverage generated="1683537452">
+  <project timestamp="1683537452">
     <file name="/home/linda/dbwebb-kurser/mvc/me/report/src/Cards/Card.php">
       <class name="App\Cards\Card" namespace="global">
         <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
@@ -864,7 +864,7 @@
       <line num="45" type="stmt" count="7"/>
       <line num="48" type="method" name="lowOrHighAce" visibility="public" complexity="2" crap="2" count="7"/>
       <line num="50" type="stmt" count="7"/>
-      <line num="51" type="stmt" count="1"/>
+      <line num="51" type="stmt" count="2"/>
       <line num="54" type="stmt" count="6"/>
       <line num="57" type="method" name="getCardHandArray" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="59" type="stmt" count="2"/>

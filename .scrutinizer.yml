@@ -5,11 +5,10 @@ filter:
     excluded_paths: [vendor/*, test/*]
 
 build:
+    environment:
+        php:
+            8.2
     nodes:
-        my-tests:
-            environment:
-                php:
-                    version: 8.2
         analysis:
             tests:
                 override:

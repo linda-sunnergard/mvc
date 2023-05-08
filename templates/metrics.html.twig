@@ -18,20 +18,23 @@
         <p>Cohesion syftar till hur väl koden i exempelvis en klass hänger ihop. En låg cohesion indikerar att en klass utför flera olika saker som kanske inte nödvändigtvis hör ihop. Det kan indikera att klassen bör delas upp i mindre klasser.</p>
 
         <h3>Coupling</h3>
-        <p>Det finns två typer av coupling. Det finns afferent coupling, som syftar till utgående "kopplingar". Alltså att en klass använder sig av många andra klasser. Det finns även efferent coupling, som syftar till inkommande "kopplingar". Alltså att en klass används av många andra klasser.</p>
+        <p>Det finns två typer av coupling. Det finns afferent coupling, som syftar till utgående "kopplingar". Alltså att en klass används av många andra klasser. Det finns även efferent coupling, som syftar till inkommande "kopplingar". Alltså att en klass används av många andra klasser.</p>
 
         <h2>Phpmetrics</h2>
         <h3>Coverage</h3>
-        <p>Text</p>
+        <p>De klasser som jag har skrivit enhetstest för är: Card, CardGraphic, CardHand, DeckOfCards, DrawResponse, Player, Bank, Game. Rapporten visar att alla dessa klasser blir anropade utav mina test suites. En möjlig nackdel är att det är svårt att testa klasserna enskilt. Till exempel CardHand innehåller en array med Card(s). Genom att testa CardHand anropas/används även Card och CardGraphic. Så är det för de flesta utav klasserna som testas.</p>
 
         <h3>Complexity</h3>
-        <p>Text</p>
+        <p>Utifrån rapporten gällande komplexitet verkar det som att klasserna DeckOfCards, Game och JsonController är de mest komplexa. Till exempel JsonController har ett mätvärde på 17 gällande weighted method count, och 529,41 på relative system complexity. Även övriga controllers ter sig relativt komplexa, troligen på grund av att de är sammanlänkade med så många andra klasser. Detta kommer göra dem svåra att underhålla och uppdatera över tid. Om en klass ändras, kommer de i sin tur inte fungera som det är tänkt.</p>
 
         <h3>Cohesion</h3>
-        <p>Text</p>
+        <p>Den klassen som har högst värde på Lack of Cohesion of Methods (LCOM) är JsonController, som får mätvärdet nio. Det är på sätt och vis förståeligt då denna kontroller interagerar med många andra klasser för att möjliggöra Json Api. Även om den visserligen "bara" är till för just Json Api, blir det spretigt i och med att den samarbetar med så många olika delar av koden.</p>
 
         <h3>Coupling</h3>
-        <p>Text</p>
+        <p>Det framkommer att klasserna Card, CardHand och DeckOfCards alla har tre utgående (afferent) kopplingar. Troligtvis är dessa tre nystade ganska väl tillsammans. Exempelvis klassen Card ingår bland annat i CardHand och i DeckOfCards. Gällande inkommande (efferent) kopplingar har alla olika Controller(s) mellan 4-8 kopplingar. Klassen Game är den klass som inte är en controller som har flest inkommande kopplingar, nämligen fem. Det gör den möjligen relativt sårbar då den kommer påverkas om andra delar av koden ändras.</p>
+
+        <h3>Violations</h3>
+        <p>JsonController får varningar för att den troligen är buggad och räknas som ett "God class". Den har för många publika metoder, använder sig av många externa klasserna och har en låg cohesion.</p>
 
         <h2>Scrutinizer</h2>
         <h3>Coverage</h3>
