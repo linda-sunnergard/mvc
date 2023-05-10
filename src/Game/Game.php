@@ -138,9 +138,9 @@ class Game
     * @throws Exception                 If no argument is sent in, the user is prompted to do so
     * @return Player|Bank     Returns the Player or Bank object reuired
     */
-    public function getPlayer(string $player = null): Player | Bank
+    public function getPlayer(string $player = null): Player | Bank | null
     {
-        if ($player == null) {
+        if ($player === null) {
             throw new Exception("Please pick a player.");
         }
 

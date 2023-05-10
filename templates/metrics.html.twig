@@ -20,44 +20,89 @@
         <h3>Coupling</h3>
         <p>Det finns två typer av coupling. Det finns afferent coupling, som syftar till utgående "kopplingar". Alltså att en klass används av många andra klasser. Det finns även efferent coupling, som syftar till inkommande "kopplingar". Alltså att en klass används av många andra klasser.</p>
 
+        <h3>Codestyle</h3>
+        <p>Kodstil relaterar till hur man skriver "snygg" kod. Till exempel gällande hur man ska använda sig av white spaces, tabs, vertical alignment, hur/var kommentarer ska skrivas och så vidare. Helt enkelt hur koden visuellt ska se ut för att öka läsbarheten.</p>
+
+        <h3>CRAP</h3>
+        <p>Change Risk Analyzer and Predictor (CRAP) handlar om komplexa metoder och testning utav dessa. Om en metod är komplext, bör den även ha många tests kopplade till sig som testar olika utfall. Detta för att säkerställa att koden beter sig som förväntat.</p>
+
         <h2>Phpmetrics</h2>
         <h3>Coverage</h3>
         <p>De klasser som jag har skrivit enhetstest för är: Card, CardGraphic, CardHand, DeckOfCards, DrawResponse, Player, Bank, Game. Rapporten visar att alla dessa klasser blir anropade utav mina test suites. En möjlig nackdel är att det är svårt att testa klasserna enskilt. Till exempel CardHand innehåller en array med Card(s). Genom att testa CardHand anropas/används även Card och CardGraphic. Så är det för de flesta utav klasserna som testas.</p>
 
         <h3>Complexity</h3>
+        <a href="{{ asset('img/phpmetrics_complexity.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_complexity.png' alt='PHPMetrics Complexity'>
+        </a>
         <p>Utifrån rapporten gällande komplexitet verkar det som att klasserna DeckOfCards, Game och JsonController är de mest komplexa. Till exempel JsonController har ett mätvärde på 17 gällande weighted method count, och 529,41 på relative system complexity. Även övriga controllers ter sig relativt komplexa, troligen på grund av att de är sammanlänkade med så många andra klasser. Detta kommer göra dem svåra att underhålla och uppdatera över tid. Om en klass ändras, kommer de i sin tur inte fungera som det är tänkt.</p>
 
         <h3>Cohesion</h3>
+       <a href="{{ asset('img/phpmetrics_cohesion.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_cohesion.png' alt='PHPMetrics Cohesion'>
+        </a>
         <p>Den klassen som har högst värde på Lack of Cohesion of Methods (LCOM) är JsonController, som får mätvärdet nio. Det är på sätt och vis förståeligt då denna kontroller interagerar med många andra klasser för att möjliggöra Json Api. Även om den visserligen "bara" är till för just Json Api, blir det spretigt i och med att den samarbetar med så många olika delar av koden.</p>
 
         <h3>Coupling</h3>
+        <a href="{{ asset('img/phpmetrics_acoupling.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_acoupling.png' alt='PHPMetrics Afferent Coupling'>
+        </a>
+        <a href="{{ asset('img/phpmetrics_ecoupling.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_ecoupling.png' alt='PHPMetrics Efferent Coupling'>
+        </a>
         <p>Det framkommer att klasserna Card, CardHand och DeckOfCards alla har tre utgående (afferent) kopplingar. Troligtvis är dessa tre nystade ganska väl tillsammans. Exempelvis klassen Card ingår bland annat i CardHand och i DeckOfCards. Gällande inkommande (efferent) kopplingar har alla olika Controller(s) mellan 4-8 kopplingar. Klassen Game är den klass som inte är en controller som har flest inkommande kopplingar, nämligen fem. Det gör den möjligen relativt sårbar då den kommer påverkas om andra delar av koden ändras.</p>
 
         <h3>Violations</h3>
         <p>JsonController får varningar för att den troligen är buggad och räknas som ett "God class". Den har för många publika metoder, använder sig av många externa klasserna och har en låg cohesion.</p>
 
         <h2>Scrutinizer</h2>
+        <h3>Badges</h3>
+        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/quality-score.png?b=main" alt="Badge Scrutinizer">
+        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/coverage.png?b=main" alt="Badge coverage">
+        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/build.png?b=main" alt="Badge build">
+        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/code-intelligence.svg?b=main" alt="Badge code intelligence">
+
         <h3>Coverage</h3>
-        <p>Text</p>
+        <a href="{{ asset('img/scrutinizer_coverage.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_coverage.png' alt='Scrutinizer coverage'>
+        </a>
+        <p>Genom att endast se över badge "coverage" ser det inte särskilt bra ut med endast 20%. Genom att däremot se över de klasser som testen är skrivna för ser det bättre ut. En möjlig förbättring skulle däremot givetvis kunna vara att skriva fler tester eller skriva tester för exempelvis controllers.</p>
 
         <h3>Complexity</h3>
-        <p>Text</p>
+        <a href="{{ asset('img/scrutinizer_complexity.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_complexity.png' alt='Scrutinizer complexity'>
+        </a>
+        <p>Utav de klasser jag själv skrivit (inte del av tidigare övningar) framkommer att DeckOfCards, JsonController och Game är de mest komplexa klasserna. Detta har troligen att göra med att de är beroende av andra klasser. JsonController har även relativt många publika metoder.</p>
 
-        <h3>Cohesion</h3>
-        <p>Text</p>
+        <h3>CRAP</h3>
+        <a href="{{ asset('img/scrutinizer_crap.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_crap.png' alt='Scrutinizer CRAP'>
+        </a>
+        <p>Metoderna playerWins, apiDeckDrawMany och drawPost är de funktioner som har högst CRAP-värde. Vilket troligen innebär att de behöver ha fler tester med olika testfall för att få ner värdet. playerWins ingår i klassen Game som det finns tester för, så möjligen skulle en förbättring kunna vara att skriva fler tester för denna metod.</p>
 
-        <h3>Coupling</h3>
-        <p>Text</p>
+        <h3>Size</h3>
+        <a href="{{ asset('img/scrutinizer_size.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_size.png' alt='Scrutinizer size'>
+        </a>
+        <p>Såväl JsonController som BookController är något stora och skulle möjligen kunna delas upp i mindre delar för att minska storleken och komplexiteten.</p>
+
+        <h3>Issues</h3>
+        <a href="{{ asset('img/scrutinizer_issues.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_issues.png' alt='Scrutinizer issues'>
+        </a>
+        <p>Det finns fem issues kopplade till den koden som jag har skrivit. Vid en översikt verkar det handla om best practice, och möjliga buggar.</p>
 
         <h2>Förbättringar</h2>
-        <h3>Förbättring nr 1</h3>
-        <p>Text</p>
+        <h3>Förbättring nr 1: Dela upp JsonController i mindre klasser</h3>
+        <h4>Före</h4>
+        <p>JsonController är den klass som verkar dyka upp oftast i olika rapporter. Både när det gäller complexity, LCOM, efferent coupling, size och violations dyker den klassen upp. Jag tror att detta till stor del går att fixa genom att behålla koden, men helt enkelt dela upp den i mindre delar.</p>
 
-        <h3>Förbättring nr 2</h3>
-        <p>Text</p>
+        <h3>Förbättring nr 2: Åtgärda issues i Scrutinizer</h3>
+        <h4>Före</h4>
+        <p>Jag upplever att framförallt Scrutinizer ger konkreta orsaker och förslag till de issues som tas upp. Därför tänker jag att jag ska se över om jag inte kan åtgärda dessa och på så sätt få generellt bättre och tydligare kod. En del issues är dock kopplade till kod jag inte skrivit som en del av projektet, och jag tänker därför rikta in mig på det jag själv skrivit.</p>
 
-        <h3>Förbättring nr 3</h3>
-        <p>Text</p>
+        <h3>Förbättring nr 3: Se över tester för metoder playerWins()</h3>
+        <h4>Före</h4>
+        <p>I min egen kod kan jag se att jag har skrivit tester för playerWins(), men Scrutinizer klagar på att så ej är fallet. Jag antar att mina tester inte exekvifieras så som jag tror och en förbättring är därmed att se till att testerna fungerar så som jag vill.</p>
 
         <h2>Diskussion</h2>
     </article>

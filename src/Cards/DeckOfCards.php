@@ -66,7 +66,7 @@ class DeckOfCards
 
     public function drawCards(int $numb = null): array
     {
-        if($numb <= 1 or $numb == null) {
+        if($numb <= 1 or $numb === null) {
             return [$this->drawCard()];
         }
 

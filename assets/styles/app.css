@@ -87,6 +87,11 @@ img {
     margin: auto;
 }
 
+.imageMetrics {
+    display: block;
+    margin: auto;
+}
+
 .imgBook {
     width: 30%
 }
