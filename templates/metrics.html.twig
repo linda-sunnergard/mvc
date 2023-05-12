@@ -56,10 +56,21 @@
 
         <h2>Scrutinizer</h2>
         <h3>Badges</h3>
-        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/quality-score.png?b=main" alt="Badge Scrutinizer">
-        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/coverage.png?b=main" alt="Badge coverage">
-        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/build.png?b=main" alt="Badge build">
-        <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/code-intelligence.svg?b=main" alt="Badge code intelligence">
+        <a href="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/quality-score.png?b=main" alt="Badge Scrutinizer">
+        </a>
+
+        <a href="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/coverage.png?b=main" alt="Badge coverage">
+        </a>
+
+        <a href="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/build.png?b=main" alt="Badge build">
+        </a>
+
+        <a href="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/?branch=main">
+            <img src="https://scrutinizer-ci.com/g/linda-sunnergard/mvc/badges/code-intelligence.svg?b=main" alt="Badge code intelligence">
+        </a>
 
         <h3>Coverage</h3>
         <a href="{{ asset('img/scrutinizer_coverage.png') }}">
@@ -95,16 +106,47 @@
         <h3>Förbättring nr 1: Dela upp JsonController i mindre klasser</h3>
         <h4>Före</h4>
         <p>JsonController är den klass som verkar dyka upp oftast i olika rapporter. Både när det gäller complexity, LCOM, efferent coupling, size och violations dyker den klassen upp. Jag tror att detta till stor del går att fixa genom att behålla koden, men helt enkelt dela upp den i mindre delar.</p>
+        <h4>Efter</h4>
+        <a href="{{ asset('img/phpmetrics_complexity_after1.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_complexity_after1.png' alt='Scrutinizer complexity1 after'>
+        </a>
+        <a href="{{ asset('img/phpmetrics_complexity_after2.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_complexity_after2.png' alt='Scrutinizer complexity2 after'>
+        </a>
+        <a href="{{ asset('img/phpmetrics_complexity_after3.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_complexity_after3.png' alt='Scrutinizer complexity3 after'>
+        </a>
+&nbsp;
+        <a href="{{ asset('img/phpmetrics_coupling_after.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_coupling_after.png' alt='Scrutinizer coupling after'>
+        </a>
+&nbsp;
+        <a href="{{ asset('img/phpmetrics_lcom_after.png') }}">
+            <img class='imageMetrics' src='img/phpmetrics_lcom_after.png' alt='Scrutinizer LCOM after'>
+        </a>
+        <p>Klassen delades upp i två klasser; JsonController som innehåller övningar under kursen och API relaterat till biblioteket, samt JsonCardController som innehåller API relaterat till kortleken och kortspelet. Detta verkar innebära att båda klasserna har en mindre komplexitet. Deras respektive LCOM-värde är lägre och flera andra värder gällande komplexitet så som WMC och relative system complexity. Varken JsonController eller JsonCardController räknas längre som en "god class" i violations. Däremot har inte efferent coupling förbättrats särskilt mycket, som är 7 för JsonCardController och 4 för JsonController.</p>
 
         <h3>Förbättring nr 2: Åtgärda issues i Scrutinizer</h3>
         <h4>Före</h4>
-        <p>Jag upplever att framförallt Scrutinizer ger konkreta orsaker och förslag till de issues som tas upp. Därför tänker jag att jag ska se över om jag inte kan åtgärda dessa och på så sätt få generellt bättre och tydligare kod. En del issues är dock kopplade till kod jag inte skrivit som en del av projektet, och jag tänker därför rikta in mig på det jag själv skrivit.</p>
+        <p>Jag upplever att framförallt Scrutinizer ger konkreta orsaker och förslag till de issues som tas upp, vilket är nio till antalet. Därför tänker jag att jag ska se över om jag inte kan åtgärda dessa och på så sätt få generellt bättre och tydligare kod. En del issues är dock kopplade till kod jag inte skrivit som en del av projektet, och jag tänker därför rikta in mig på det jag själv skrivit.</p>
+        <h4>Efter</h4>
+        <p>Tre issues gick relativt enkelt att åtgärda då det framförallt handlade om att Scrutinizer föreslog === istället för ==. Så det totala antalet issues gick ner till sex, varav fyra är relaterade till kod jag själv inte skrivit (i filerna Kernel.php och .php-cs-fixer.dist.php).</p>
 
         <h3>Förbättring nr 3: Se över tester för metoder playerWins()</h3>
         <h4>Före</h4>
         <p>I min egen kod kan jag se att jag har skrivit tester för playerWins(), men Scrutinizer klagar på att så ej är fallet. Jag antar att mina tester inte exekvifieras så som jag tror och en förbättring är därmed att se till att testerna fungerar så som jag vill.</p>
+        <h4>Efter</h4>
+        <a href="{{ asset('img/scrutinizer_coverage_after.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_coverage_after.png' alt='Scrutinizer coverage after'>
+        </a>
+&nbsp;
+        <a href="{{ asset('img/scrutinizer_crap_after.png') }}">
+            <img class='imageMetrics' src='img/scrutinizer_crap_after.png' alt='Scrutinizer CRAP after'>
+        </a>
+        <p>Tidigare hade jag delat upp testerna för Game-klassen i två klasser, GameTest och GameTestWinner. GameTestWinner skulle endast testa playerWins(), men det visade sig att dessa inte exekvifierades. Anledningen till att jag hade gjort det var för att lintern klagade på att GameTest hade för många publika metoder annars. Jag valde dock att ignorera det och ha alla tester för Game-klassen i en testklass. Nu utförs alla tester enligt plan, och testtäckningen har förbättrats. Detta har även inneburit att playerWins() CRAP-värde har förbättrats.</p>
 
         <h2>Diskussion</h2>
+        <p>Jag tror detta kan vara ett sätt att arbeta med kodkvalitet. Det kan vara svårt att få en bra överblick själv över sin kod. Man ser inte skogen för alla träd och så vidare. Så att få konkreta mätvärden är ett bra sätt att se luckor, missar och misstag som kan behöva åtgärdas. De nackdelar som jag upplevde var dels att man får nästan för många siffror. Det är svårt att ta in alla kodanalyser man får fram, vad de betyder, vad det skulle innebära att försöka åtgärda dem och om det ens behövs. Den andra nackdelen var att jag upplevde att när jag åtgärdade ett fel i PHPMetrics/Scrutinizer så klagade litern på att jag har för många publika metoder i en klass. Så där upplevde jag att de arbetade mot varandra. En annan nackdel kan vara att man kanske fastnar i väldigt små detaljer hur en viss metod är skriver, och frågan är hur stor skillnad det gör i det stora hela. Överlag tycker jag däremot det var hjälpsamt att se över min kod och få ett hum om hur bra/dålig den är.</p>
     </article>
 </main>
 {% endblock %}

@@ -266,31 +266,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-JsonController.html#method_randQuote"
         },                {
-            "fqsen": "\\App\\Controller\\JsonController\u003A\u003AapiDeckSort\u0028\u0029",
-            "name": "apiDeckSort",
-            "summary": "",
-            "url": "classes/App-Controller-JsonController.html#method_apiDeckSort"
-        },                {
-            "fqsen": "\\App\\Controller\\JsonController\u003A\u003AapiDeckShuffle\u0028\u0029",
-            "name": "apiDeckShuffle",
-            "summary": "",
-            "url": "classes/App-Controller-JsonController.html#method_apiDeckShuffle"
-        },                {
-            "fqsen": "\\App\\Controller\\JsonController\u003A\u003AapiDeckDraw\u0028\u0029",
-            "name": "apiDeckDraw",
-            "summary": "",
-            "url": "classes/App-Controller-JsonController.html#method_apiDeckDraw"
-        },                {
-            "fqsen": "\\App\\Controller\\JsonController\u003A\u003AapiDeckDrawMany\u0028\u0029",
-            "name": "apiDeckDrawMany",
-            "summary": "",
-            "url": "classes/App-Controller-JsonController.html#method_apiDeckDrawMany"
-        },                {
-            "fqsen": "\\App\\Controller\\JsonController\u003A\u003AapiGame\u0028\u0029",
-            "name": "apiGame",
-            "summary": "",
-            "url": "classes/App-Controller-JsonController.html#method_apiGame"
-        },                {
             "fqsen": "\\App\\Controller\\JsonController\u003A\u003AapiLibraryBooks\u0028\u0029",
             "name": "apiLibraryBooks",
             "summary": "",
@@ -330,6 +305,11 @@ Search.appendIndex(
             "name": "excersice",
             "summary": "",
             "url": "classes/App-Controller-MeController.html#method_excersice"
+        },                {
+            "fqsen": "\\App\\Controller\\MeController\u003A\u003Ametrics\u0028\u0029",
+            "name": "metrics",
+            "summary": "",
+            "url": "classes/App-Controller-MeController.html#method_metrics"
         },                {
             "fqsen": "\\App\\Controller\\TwentyOneController",
             "name": "TwentyOneController",
@@ -850,6 +830,36 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Controller\\JsonCardController",
+            "name": "JsonCardController",
+            "summary": "",
+            "url": "classes/App-Controller-JsonCardController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\JsonCardController\u003A\u003AapiDeckSort\u0028\u0029",
+            "name": "apiDeckSort",
+            "summary": "",
+            "url": "classes/App-Controller-JsonCardController.html#method_apiDeckSort"
+        },                {
+            "fqsen": "\\App\\Controller\\JsonCardController\u003A\u003AapiDeckShuffle\u0028\u0029",
+            "name": "apiDeckShuffle",
+            "summary": "",
+            "url": "classes/App-Controller-JsonCardController.html#method_apiDeckShuffle"
+        },                {
+            "fqsen": "\\App\\Controller\\JsonCardController\u003A\u003AapiDeckDraw\u0028\u0029",
+            "name": "apiDeckDraw",
+            "summary": "",
+            "url": "classes/App-Controller-JsonCardController.html#method_apiDeckDraw"
+        },                {
+            "fqsen": "\\App\\Controller\\JsonCardController\u003A\u003AapiDeckDrawMany\u0028\u0029",
+            "name": "apiDeckDrawMany",
+            "summary": "",
+            "url": "classes/App-Controller-JsonCardController.html#method_apiDeckDrawMany"
+        },                {
+            "fqsen": "\\App\\Controller\\JsonCardController\u003A\u003AapiGame\u0028\u0029",
+            "name": "apiGame",
+            "summary": "",
+            "url": "classes/App-Controller-JsonCardController.html#method_apiGame"
         },                {
             "fqsen": "\\",
             "name": "\\",

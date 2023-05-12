@@ -63,7 +63,7 @@ class CardGameController extends AbstractController
         SessionInterface $session
     ): Response {
         $hand = $session->get("hand", new CardHand());
-        $deck = $session->get("deck");
+        $deck = $session->get("deck", new DeckOfCards());
 
         if ($deck->countDeck() == 0) {
             throw new Exception("No cards left!");
@@ -78,6 +78,9 @@ class CardGameController extends AbstractController
         foreach ($deck->getDeck() as $currentCard) {
             $graphicDeck[] = $currentCard->getAsString();
         }
+        
+        $session->set("hand", $hand);
+        $session->set("deck", $deck);
 
         $data = [
             "card" => $graphicCard,
@@ -93,7 +96,7 @@ class CardGameController extends AbstractController
     ): Response {
         $numCards = $request->request->get('num_cards');
         $hand = $session->get("hand", new CardHand());
-        $deck = $session->get("deck");
+        $deck = $session->get("deck", new DeckOfCards());
 
         if ($deck->countDeck() < $numCards) {
             throw new Exception("Not enough cards left!");
