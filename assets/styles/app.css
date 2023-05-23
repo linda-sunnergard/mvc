@@ -40,13 +40,21 @@ h2 {
 }
 
 .navbar {
+    font-size: 1rem;
+    background: #333;
+    padding: 1%;
+}
+
+.navMenu {
+    list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    font-size: 1rem;
-    margin-bottom: 1.68rem;
-    background: #333;
-    padding: 1%;
+}
+
+.navRoute {
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .navbar

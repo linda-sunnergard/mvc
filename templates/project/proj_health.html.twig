@@ -1,0 +1,46 @@
+{% extends "project/proj_base.html.twig" %}
+
+{% block title %}God hälsa{% endblock %}
+
+{% block body %}
+<div class="projectImgContainer">
+    <img class="projectHealth" src="../img/health.jpg" alt="A heart">
+</div>
+
+<main class="projectcontainer">
+    <h1 class="projectH1">God hälsa och välbefinnande</h1>
+
+        <div class="main">
+            <article>
+                <img class="goalLogoBig" src="../img/3_0.png" alt="God hälsa och välbefinnande">
+                <p class="projectP">Alla har rätt till en god hälsa. Endast då kan människor fullt ut bidra till samhället och nå sin fulla potential (<a href="https://www.globalamalen.se/om-globala-malen/mal-3-halsa-och-valbefinnande/">Globala målen: 3 God hälsa och välbefinnande</a>).</p>
+
+                <h2 class="projectH2">Rubrik</h2>
+                <p class="projectP projectPCenter">Följande diagram visar självskattad hälsa för personer mellan 16-65+ år, fördelat på deras utbildningsnivå.</p>
+
+                <div class="projectChart">
+                    {{ render_chart(chart) }}
+                </div>
+
+&nbsp;
+
+                <p class="projectP">Flera delmål och indikatorer är redan uppfyllda eller delvis uppfyllda i Sverige, så som låg spädbarnsdödlighet, minskade antal omkomna i trafiken och så vidare. Andelen som uppger ökade psykiska påfrestningar har dock ökat (<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf">SCB, Statistisk lägesbild 2022 Genomförande av Agenda 2030 i Sverige</a>). Självskattad, eller självupplevd, hälsa är därmed en viktig indikator att ta hänsyn till då detta torde spegla inte bara fysisk hälsa utan även psykisk hälsa.</p>
+                <p class="projectP">Ur diagrammet framkommer att det ter sig finnas ett samband mellan utbildningsnivå och självskattad hälsa, även om det självklart inte går att uttala sig om kausalitet. Desto högre utbildningsnivå, desto högre självskattad hälsa.</p>
+
+&nbsp;
+
+                <h2 class="projectH2">Rubrik</h2>
+                <p class="projectP projectPCenter">Följande diagram visar personer mellan 16-84 år som haft behov av vård (procentuellt), men avstått från att söka vård på grund av ekonomiska orsaker. Grupperna är fördelade på utbildningsnivå.</p>
+                <div class="projectChart">
+                    {{ render_chart(chartEco) }}
+                </div>
+
+&nbsp;
+
+                <p class="projectP">En förutsättning för att uppnå vissa delmål kopplade till hälsa och välbefinnande, är att människor till att börja med har tillgång till god vård, samt upplever att de har möjlighet att söka vård vid behov.</p>
+                <p class="projectP">Ur diagrammet framkommer att det finns människor som upplever ett vårdbehov, men avstår att söka denna vård på grund av ekonomiska orsaker. Detta verkar framförallt gälla personer med förgymnasial utbildning, och i ännu högre grad för män i denna grupp.</p>
+
+            </article>
+        </div>
+</main>
+{% endblock %}

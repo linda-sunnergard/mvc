@@ -1,0 +1,135 @@
+{% extends "project/proj_base.html.twig" %}
+
+{% block title %}Hållbarhet{% endblock %}
+
+{% block body %}
+<div class="projectImgContainer">
+    <img class="projectImg" src="img/project_forest.jpg" alt="A pretty forest">
+</div>
+
+<main class="projectcontainer">
+    <h1 class="projectH1">Hållbarhetsrapport</h1>
+
+        <div class="main">
+            <article>
+                <p class="projectP">De 17 globala målen togs fram av Förenta Nationernas (FN) medlemsländer 2015.
+                                    Dessa mål är en del av Agenda 2030, och där det övergripande målet är att:</p>
+                <ul class="projectP projectList">
+                    <li>Att avskaffa extrem fattigdom.</li>
+                    <li>Att minska ojämlikheter och orättvisor i världen.</li>
+                    <li>Att främja fred och rättvisa.</li>
+                    <li>Att lösa klimatkrisen</li>
+                </ul>
+
+                <img class="imgCenter" src="img/global_goals.jpg" alt="Global goals">
+
+&nbsp;
+                <h2 class="projectH2">God hälsa och välbefinnande</h2>
+                <p class="projectP">Det tredje av de 17 målen handlar om att säkerställa människors hälsa och välbefinnande, oavsett ålder, kön, socioekonomisk status och så vidare. 
+                                    Målet avser både om olyckor i exempelvis trafiken, förbyggande hälsa i form av vaccinationer, mental hälsa i form av färre självmord, och att bekämpa smittsamma sjukdomar.</p>
+
+                <img class="goalLogo" src="img/3_0.png" alt="God hälsa och välbefinnande">
+
+                <div class="projectGrid">
+                    <div class="projectGridOne">
+                        <img class="projectSubgoalImg" src="img/3_1.png" alt="Delmål ett">
+                    </div>
+
+                    <div class="projectGridTwo">
+                        <img class="projectSubgoalImg" src="img/3_2.png" alt="Delmål två">
+                    </div>
+
+                    <div class="projectGridThree">
+                        <img class="projectSubgoalImg" src="img/3_3.png" alt="Delmål tre">
+                    </div>
+
+                    <div class="projectGridFour">
+                        <img class="projectSubgoalImg" src="img/3_4.png" alt="Delmål fyra">
+                    </div>
+
+                    <div class="projectGridFive">
+                        <img class="projectSubgoalImg" src="img/3_5.png" alt="Delmål fem">
+                    </div>
+
+                    <div class="projectGridSix">
+                        <img class="projectSubgoalImg" src="img/3_6.png" alt="Delmål sex">
+                    </div>
+
+                    <div class="projectGridSeven">
+                        <img class="projectSubgoalImg" src="img/3_7.png" alt="Delmål sju">
+                    </div>
+
+                    <div class="projectGridEight">
+                        <img class="projectSubgoalImg" src="img/3_8.png" alt="Delmål åtta">
+                    </div>
+
+                    <div class="projectGridNine">
+                        <img class="projectSubgoalImg" src="img/3_9.png" alt="Delmål nio">
+                    </div>
+                </div>
+
+&nbsp;
+
+                <button type="button" class="projectButton health" 
+                    onClick = "location.href = '{{ path('goal_three') }}';">
+                    God hälsa och välbefinnande
+                </button>
+
+&nbsp;
+
+                <h2 class="projectH2">God utbildning för alla</h2>
+                <p class="projectP">Det fjärde målet syftar till att alla människor har rätt till utbildning genom hela livet från förskola till eftergymnasiala studier.
+                                    Alla människor ska kunna läsa, skriva och räkna. Alla ska ha samma goda tilgång till en avgiftsfri skolgång och ingen ska bli diskriminerad i skolan.</p>
+
+                <img class="goalLogo" src="img/4_0.png" alt="God utbildning för alla">
+
+                <div class="projectGrid">
+                    <div class="projectGridOne">
+                        <img class="projectSubgoalImg" src="img/4_1.png" alt="Delmål ett">
+                    </div>
+
+                    <div class="projectGridTwo">
+                        <img class="projectSubgoalImg" src="img/4_2.png" alt="Delmål två">
+                    </div>
+
+                    <div class="projectGridThree">
+                        <img class="projectSubgoalImg" src="img/4_3.png" alt="Delmål tre">
+                    </div>
+
+                    <div class="projectGridFour">
+                        <img class="projectSubgoalImg" src="img/4_4.png" alt="Delmål fyra">
+                    </div>
+
+                    <div class="projectGridFive">
+                        <img class="projectSubgoalImg" src="img/4_5.png" alt="Delmål fem">
+                    </div>
+
+                    <div class="projectGridSix">
+                        <img class="projectSubgoalImg" src="img/4_6.png" alt="Delmål sex">
+                    </div>
+
+                    <div class="projectGridSevenSpecial">
+                        <img class="projectSubgoalImg" src="img/4_7.png" alt="Delmål sju">
+                    </div>
+                </div>
+
+&nbsp;
+
+                <button type="button" class="projectButton education" 
+                    onClick = "location.href = '{{ path('goal_four') }}';">
+                    God utbildning för alla
+                </button>
+
+&nbsp;
+
+                <img class="goalLogo" src="img/LNOB.png" alt="Ingen ska lämnas utanför">
+
+                <button type="button" class="projectButton references" 
+                    onClick = "location.href = '{{ path('references') }}';">
+                    Referenser
+                </button>
+&nbsp;
+            </article>
+        </div>
+</main>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "project/proj_base.html.twig" %}
+
+{% block title %}Om projektet{% endblock %}
+
+{% block body %}
+<div class="projectImgContainer">
+    <img class="projectImg" src="../img/project_forest.jpg" alt="A pretty forest">
+</div>
+
+<main class="projectcontainer">
+    <h1 class="projectH1">Om projektet</h1>
+
+        <div class="main">
+            <article>
+                <p class="projectP">Jag valde att fokusera på att skapa en sida hållbarhet och de 17 globala målen. Framförallt valde jag att fokusera på mål 3 "God hälsa och välbefinnande", och mål 4 "God utbildning för alla".</p>
+                <p class="projectP">Målet om utbildning kändes som ett självklart val inom ramen för denna utbildning. Målet om hälsa kändes spännande, då jag tänker att hälsa och utbildning kan höra ihop. Exempelvis att tillgång till en god utbildning genom livet indirekt leder till bättre hälsa över tid.</p>
+
+                <h2 class="projectH2">Länkar till alla sidor</h2>
+                <ul class="projectList">
+                    <li><a class="aboutLink" href="{{ path('project') }}">Startsida</a></li>
+                    <li><a class="aboutLink" href="{{ path('references') }}">Referenser</a></li>
+                    <li><a class="aboutLink" href="{{ path('about_project') }}">Om projektet (den här sidan)</a></li>
+                    <li><a class="aboutLink" href="{{ path('goal_three') }}">Mål 3: God hälsa och välbefinnande</a></li>
+                    <li><a class="aboutLink" href="{{ path('goal_four') }}">Mål 4: God utbildning för alla</a></li>
+                    <li><a class="aboutLink" href="{{ path('about_database') }}">Databasen</a></li>
+                </ul>
+            </article>
+        </div>
+</main>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "project/proj_base.html.twig" %}
+
+{% block title %}Utbildning{% endblock %}
+
+{% block body %}
+<div class="projectImgContainer">
+    <img class="projectImg" src="../img/education.jpg" alt="A pretty forest">
+</div>
+
+<main class="projectcontainer">
+    <h1 class="projectH1">God utbildning för alla</h1>
+
+        <div class="main">
+            <article>
+                <img class="goalLogoBig" src="../img/4_0.png" alt="God utbildning för alla">
+                <p class="projectP">En god utbildning är en grundläggande mänsklig rättighet. Alla människor ska få lära sig att läsa, skriva och räkna. En god utbildning är en del av ett samhälle som nygger på välstånd, hälsa och jämställdhet (<a href="https://www.globalamalen.se/om-globala-malen/mal-4-god-utbildning-alla/">Globala målen: 4 God utbildning för alla</a>).</p>
+
+                <h2 class="projectH2">Utbildningsnivå</h2>
+                <p class="projectP projectPCenter">Följande diagram visar utbildningsnivå för kvinnor och män i åldrarna 16-64 år 2015 samt år 2019.</p>
+
+                <div class="projectChart">
+                    {{ render_chart(chart) }}
+                </div>
+
+&nbsp;
+
+                <p class="projectP">Tillgången till utbildning är god i Sverige i nationella jämförelser. De allra flesta har avslutat grundskolan och utbildningsnivån har ökat under lång tid.(<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf">SCB, Statistisk lägesbild 2022 Genomförande av Agenda 2030 i Sverige</a>).</p>
+                <p class="projectP">Ur diagrammet framkommer att ungefär 85% av kvinnorna och ungefär 80% av männen har en gymnasial utbildning eller högre, och att dessa siffror varit relativt stabila mellan 2015 och 2019.</p>
+
+                <h2 class="projectH2">Andel barn 1-5 år i förskola</h2>
+                <p class="projectP projectPCenter">Följande diagram visar andel barn mellan 1 och 5 år som deltar i förskola, fördelat på föräldrarnas utbildningsnivå.</p>
+
+                <div class="projectChart">
+                    {{ render_chart(chartPreschool) }}
+                </div>
+
+&nbsp;
+
+                <p class="projectP">Tillgången till en god utbildning för alla börjar redan i förskoleåldern, och här finns en del skillnader. Det är vanligast att delta i förskola för barn med svensk bakgrund som är i åldern 4-5 år (<a href="https://www.scb.se/contentassets/c1bc76dae47f4cb2bcfd1ec6f5a8cca1/mi1303_2021b22_br_x41br2201.pdf">SCB, Statistisk lägesbild 2022 Genomförande av Agenda 2030 i Sverige</a>).</p>
+                <p class="projectP">Ur diagrammet framkommer att barn till föräldrar som har gymnasial utbildning eller högre, deltar i förskolan i högst utsträckning. I dessa grupper har deltagande varit stabilt högt mellan 2015-2019. För barn till föräldrar med förgymnasial utbildning ligger det aningen lägre, men börjar 2019 närma sig samma nivåer som barn till föräldrar med högre utbildning. För barn till föräldrar med okänd utbildning ligger nivåerna lågt, men har 2019 börjat öka.</p>
+
+            </article>
+        </div>
+</main>
+{% endblock %}

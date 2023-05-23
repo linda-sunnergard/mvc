@@ -1,0 +1,43 @@
+{% extends "project/proj_base.html.twig" %}
+
+{% block title %}Om databasen{% endblock %}
+
+{% block body %}
+<div class="projectImgContainer">
+    <img class="projectImg" src="../../img/project_forest.jpg" alt="A pretty forest">
+</div>
+
+<main class="projectcontainer">
+    <h1 class="projectH1">Om databasen</h1>
+
+        <div class="main">
+            <article>
+            <h2 class="projectH2">Tabeller</h2>
+
+                <img class="imgCenter" src="../../img/ER_tables.png" alt="ER diagram">
+
+&nbsp;
+
+                <p class="projectP projectPCenter">Följande tabeller relaterade till projektet finns i databasen.</p>
+
+                <h3 class="projectH3">Education</h3>
+                <p class="projectP projectPCenter">Tabellen innehåller data för 2015 och 2019, gällande män och kvinnors utbildningsnivå.</p>
+
+                <h3 class="projectH3">Preschool</h3>
+                <p class="projectP projectPCenter">Tabellen innehåller data för 2015-2019, gällande barn i åldern 1-5 år som deltar i förskola, fördelat på föräldrarnas utbildningsnivå.</p>
+
+                <h3 class="projectH3">Health Education</h3>
+                <p class="projectP projectPCenter">Tabellen innehåller data gällande män och kvinnors självskattade hälsa, fördelat på utbildningsnivå.</p>
+
+                <h3 class="projectH3">Health Economy</h3>
+                <p class="projectP projectPCenter">Tabellen innehåller data gällande män och kvinnor som har haft ett vårdbehov, men avstått från att söka vård på grund av ekonomiska orsaker, fördelat på utbildningsnivå.</p>
+&nbsp;
+                <p class="projectP">Tabellerna innehåller inga relationer mellan varandra. Jag valde att använda mig av databasen SQLite. Jag valde att inte fokusera på enhetstestning av databasen, utan att istället fokusera på andra delar. Exempelvis skapade jag CSV-filer och egna kommandon för att läsa in datan till rätt tabell, samt att skapa snygga diagram för att presentera datan.</p>
+                <p class="projectP">Den största fördelen med ORM enligt mig är att det är snabbt och enkelt att använda (när man väl lärt sig hur det fungerar). Det är lite svårare att greppa och komma igång med när det inte är min egen kod som skapar tabeller, gör SELECT och INSERT och så vidare. Jag gillade framförallt att kunna skapa egna konsolkommandon som snabbt läser in min data i CSV-filer åt mig. Jag gillade även hur enkelt det var att få fram sökresultat och ändra data i databasen via funktioner som find/findBy eller exempelvis "getMyVariable/setMyVariable".
+                                    Det var skönt att slippa skriva all SQL själv, utan att det bara fanns i bakgrunden och gjorde det jag ville. Oftast kommer man långt med de fördefinierade funktioner som skapas med mina entities och repositories i symfony/doctrine. En nackdel är väl dock när man vill göra något specifikt med sin databas eller datan i den. Då är det nog lättare att skriva sin egen SQL och på så sätt kunna skapa egna 
+                                    triggers, procedurer och funktioner. Att göra en JOIN genom att skriva sin egen SQL känns inte heller särskilt svårt, men med ORM känns det desto knepigare att få till. Det är nog också enklare när man skriver SQL och koden själv att kunna felsöka vilken query som gick fel. Det blir lite magiskt/mystiskt när det finns som ett "lager" mellan mig och SQL-queries, och svårare att förstå exakt vad som händer i databsen. Alternativt, varför något inte händer. Jag hade också lite problem med migrations då jag först namngett en tabell fel 
+                                    och bara ville ändra det. Det var enklare sagt än gjort med doctrine, så det slutade i alla fall med att jag manuellt ändrade det i terminalen. En annan sak jag saknade var att kunna arbeta med workbench och få ett visuellt hjälpmedel och snabbt kunna göra olika SELECT.</p>
+            </article>
+        </div>
+</main>
+{% endblock %}

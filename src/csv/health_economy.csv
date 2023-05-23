@@ -1,0 +1,7 @@
+"gender", "education_level", "needed_care"
+"women", "pre_gym", "5.7"
+"women", "gym", "3.8"
+"women", "post_gym", "3.7"
+"men", "pre_gym", "6.2"
+"men", "gym", "3.5"
+"men", "post_gym", "3.9"
