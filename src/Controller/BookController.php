@@ -125,10 +125,14 @@ class BookController extends AbstractController
     #[Route('/library/update/{id}', name: 'library_update_by_id', methods: ['GET'])]
     public function updateBookById(
         ManagerRegistry $doctrine,
+        BookRepository $bookRepository,
         int $id
     ): Response {
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Book::class)->find($id);
+        //$book = $entityManager->getRepository(Book::class)->find($id);
+        
+        $book = $bookRepository
+            ->findOneBy(array('id' => $id));
 
         if (!$book) {
             throw $this->createNotFoundException(
@@ -147,10 +151,14 @@ class BookController extends AbstractController
     public function updateBookByIdPost(
         ManagerRegistry $doctrine,
         Request $request,
+        BookRepository $bookRepository,
         int $id
     ): Response {
         $entityManager = $doctrine->getManager();
-        $book = $entityManager->getRepository(Book::class)->find($id);
+        //$book = $entityManager->getRepository(Book::class)->find($id);
+
+        $book = $bookRepository
+            ->findOneBy(array('id' => $id));
 
         if (!$book) {
             throw $this->createNotFoundException(
@@ -166,7 +174,7 @@ class BookController extends AbstractController
         $book->setAuthor($author);
         $entityManager->flush();
 
-        $isbn = $request->request->get('isbn');
+        $isbn = (int)$request->request->get('isbn');
         $book->setIsbn($isbn);
         $entityManager->flush();
 
@@ -189,41 +197,45 @@ class BookController extends AbstractController
         }
 
         $book1 = new Book();
+        $book1Isbn = (int)'123';
         $book1->setTitle('Pannkakstårtan');
         $book1->setAuthor('Sven Nordqvist');
-        $book1->setIsbn(9789172703377);
+        $book1->setIsbn($book1Isbn);
         $book1->setImage('pannkakstartan.jpg');
 
         $entityManager->persist($book1);
         $entityManager->flush();
 
         $book2 = new Book();
+        $book2Isbn = (int)'456';
         $book2->setTitle('Känner du Pippi Långstrump?');
         $book2->setAuthor('Astrid Lindgren');
-        $book2->setIsbn(9789129698442);
+        $book2->setIsbn($book2Isbn);
         $book2->setImage('pippi.jpg');
 
         $entityManager->persist($book2);
         $entityManager->flush();
 
         $book3 = new Book();
+        $book3Isbn = (int)'789';
         $book3->setTitle('Solägget');
         $book3->setAuthor('Elsa Beskow');
-        $book3->setIsbn(9789178031542);
+        $book3->setIsbn($book3Isbn);
         $book3->setImage('solagget.jpg');
 
         $entityManager->persist($book3);
         $entityManager->flush();
 
         $book4 = new Book();
+        $book4Isbn = (int)'123456789';
         $book4->setTitle('Testbok');
         $book4->setAuthor('Testperson');
-        $book4->setIsbn(1234567890);
+        $book4->setIsbn($book4Isbn);
         $book4->setImage('default.jpg');
 
         $entityManager->persist($book4);
         $entityManager->flush();
 
-        return new Response('The database has been reset.');
+        return $this->redirectToRoute('library_show_all');
     }
 }

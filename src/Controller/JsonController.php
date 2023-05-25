@@ -87,6 +87,34 @@ class JsonController extends AbstractController
         return $response;
     }
 
+    
+    #[Route("/api/library/book/123", name: "apiLibraryBookPannkaka")]
+    public function apiLibraryBookPannkaka(
+        BookRepository $bookRepository,
+    ): Response {
+        $book = $bookRepository
+            ->findOneBy(array('isbn' => 123));
+
+        $title = $book->getTitle();
+        $author = $book->getAuthor();
+        $isbn = $book->getIsbn();
+        $image = $book->getImage();
+
+        $data = [
+            "title" => $title,
+            "author" => $author,
+            "isbn" => $isbn,
+            "image" => $image
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+    }
+
+    
     #[Route("/api/library/book/{isbn}", name: "apiLibraryBookIsbn")]
     public function apiLibraryBookIsbn(
         BookRepository $bookRepository,

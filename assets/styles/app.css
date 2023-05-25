@@ -187,6 +187,11 @@ p {
     list-style-type: none;
 }
 
+.libraryForm.form {
+    border: none;
+    outline: none;
+}
+
 form.label-left {
     margin-bottom: 24px;
 }

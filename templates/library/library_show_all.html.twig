@@ -14,13 +14,31 @@
 <ul class="libraryList">
 {% for book in library %}
     <li><img class="imgBook" src="../img/{{book.image}}" alt="Bild som representerar boken"></li>
-    <li><a class="aboutLink" href="/library/show/{{book.id}}">{{book.title}}</a></li>
+    <li>Titel: {{book.title}}</li>
     <li>Av {{book.author}}</li>
     <li>ISBN: {{book.isbn}}</li>
-    <li><a class="aboutLink" href="/library/delete/{{book.id}}">Radera</a> | <a class="aboutLink" href="/library/update/{{book.id}}">Uppdatera</a></li>
+    </ul>
+<div class="libraryForm">
+<form method="get" action="">
+    <fieldset>
+        <input id="id" type="hidden" name="id" value="{{book.id}}">
+
+        <input type="submit" name="show" value="Se bok"
+            onClick="this.form.action='{{ path('library_show_by_id', {id: book.id}) }}';"
+            >
+
+        <input type="submit" name="delete" value="Radera bok"
+            onClick="this.form.action='{{ path('library_delete_by_id', {id: book.id}) }}';"
+            >
+
+        <input type="submit" name="update" value="Uppdatera bok"
+            onClick="this.form.action='{{ path('library_update_by_id', {id: book.id}) }}';"
+            >
+    </fieldset>
+</form>
+</div>
 &nbsp;
 {% endfor %}
-</ul>
 
 </main>
 

@@ -11,11 +11,13 @@
                 <p>Jag har fyra klasser i min struktur: Card, GraphicCard (ärver från Card), CardHand (består av flera Card-objekt) och DeckOfCards (består av flera GraphicCard-objekt).</p>
                 <img class="imgCenter" src="{{ asset("img/card.png") }}" alt="Klasserna">
                 <ul>
-                    <li>Här kan du kolla ordspråk och datum. <a href="{{ path('apiQuote') }}">Ordspråk och grejer</a></li>
-                    <li>Här kan du sortera kortleken. <a href="{{ path('apiDeckSort') }}">Sortera kortleken</a></li>
-                    <li>Här kan du blanda kortleken. <a href="{{ path('apiDeckShuffle') }}">Blanda kortleken</a></li>
-                    <li>Här kan du dra ett kort (eller flera). <a href="{{ path('apiDeckDraw') }}">Dra kort</a></li>
-                    <li>Här kan du se status för kortspelet 21. <a href="{{ path('apiGame') }}">Status för kortspel 21</a></li>
+                    <li>Här kan du kolla ordspråk och datum. <a class="aboutLink" href="{{ path('apiQuote') }}">Ordspråk och grejer</a></li>
+                    <li>Här kan du sortera kortleken. <a class="aboutLink" href="{{ path('apiDeckSort') }}">Sortera kortleken</a></li>
+                    <li>Här kan du blanda kortleken. <a class="aboutLink" href="{{ path('apiDeckShuffle') }}">Blanda kortleken</a></li>
+                    <li>Här kan du dra ett kort (eller flera). <a class="aboutLink" href="{{ path('apiDeckDraw') }}">Dra kort</a></li>
+                    <li>Här kan du se status för kortspelet 21. <a class="aboutLink" href="{{ path('apiGame') }}">Status för kortspel 21</a></li>
+                    <li><a class="aboutLink" href="{{ path('apiLibraryBookPannkaka') }}">Se api/json-detaljer för boken Pannkakstårtan</a></li>
+                    <li><a class="aboutLink" href="{{ path('apiLibraryBooks') }}">Se api/json-detaljer för alla böcker</a></li>
                 </ul>
             </article>
         </div>
